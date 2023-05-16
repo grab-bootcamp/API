@@ -15,3 +15,6 @@ flask run
 
 * Data test
 >   /predict/?FFMC=80.2&DMC=11.7&DC=90.4&ISI=2.8&temp=36&RH=61&wind=18&rain=0.262364
+
+## Deploy Heroku
+> https://forest-fire-ml.herokuapp.com/

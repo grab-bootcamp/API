@@ -4,3 +4,4 @@ Flask-RESTful
 numpy
 openpyxl
 tensorflow-cpu
+gunicorn

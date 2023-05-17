@@ -12,6 +12,9 @@ CORS(app)
 # creating an API object
 api = Api(app)
 
+# Load model
+model = keras.models.load_model('model.h5', compile=False)
+
 #prediction api call
 class predict(Resource):
     def get(self):
@@ -27,9 +30,6 @@ class predict(Resource):
 
         data = np.array([[float(FFMC),float(DMC),float(DC),float(ISI),float(temp),float(RH),float(wind),float(rain)]])
         
-        # Load model
-        model = keras.models.load_model('model.h5', compile=False)
-
         # Predict
         prediction = model.predict(data)
         prediction = float(prediction[0])

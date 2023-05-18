@@ -11,10 +11,10 @@ flask run
 ```
 
 ## API
->   /predict/?FFMC=***val***&DMC=***val***&DC=***val***&ISI=***val***&temp=***val***&RH=***val***&wind=***val***&rain=***val***
+>   /predict/?temp=***val***&wind=***val***&rain=***val***&FFMC=***val***&DMC=***val***&DC=***val***&ISI=***val***&RH=***val***&BUI=***val***&FWI=***val***
 
 * Data test
->   /predict/?FFMC=80.2&DMC=11.7&DC=90.4&ISI=2.8&temp=36&RH=61&wind=18&rain=0.262364
+>   /predict/?temp=34&wind=16&rain=0&FFMC=86&DMC=12.8&DC=25.6&ISI=5.4&RH=70&BUI=12.7&FWI=6.7
 
 ## Deploy Heroku
 > https://forest-fire-ml.herokuapp.com/

@@ -4,7 +4,7 @@ from tensorflow import keras
 import numpy as np
 from flask_cors import CORS
 
-COLUMNS = ['FFMC','DMC','DC','ISI','temp','RH','wind','rain']
+COLUMNS = ['temp', 'wind', 'rain', 'FFMC', 'DMC', 'DC', 'ISI', 'RH', 'BUI', 'FWI']
 
 app = Flask(__name__)
 #
@@ -19,16 +19,7 @@ model = keras.models.load_model('model.h5', compile=False)
 class predict(Resource):
     def get(self):
         # Get data
-        FFMC = request.args.get('FFMC')
-        DMC = request.args.get('DMC')
-        DC = request.args.get('DC')
-        ISI = request.args.get('ISI')
-        temp = request.args.get('temp')
-        RH = request.args.get('RH')
-        wind = request.args.get('wind')
-        rain = request.args.get('rain')
-
-        data = np.array([[float(FFMC),float(DMC),float(DC),float(ISI),float(temp),float(RH),float(wind),float(rain)]])
+        data = np.array([[float(request.args.get(field)) for field in COLUMNS]])
         
         # Predict
         prediction = model.predict(data)
